@@ -6,27 +6,32 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest
+@Transactional
 class MemberServiceTest {
 
-    MemberService memberService;
-    MemoryMemberRepository memberRepository;
+    @Autowired MemberService memberService;
+//    @Autowired MemoryMemberRepository memberRepository;
 
-    @BeforeEach
-    public void beforeEach() { //같은 메모리를 사용하게 된다.
-        memberRepository = new MemoryMemberRepository();
-        memberService = new MemberService(memberRepository);
-    }
-
-    @AfterEach
-    public void afterEach() {
-        memberRepository.clearStore();
-    }
+//    @BeforeEach
+//    public void beforeEach() { //같은 메모리를 사용하게 된다.
+//        memberRepository = new MemoryMemberRepository();
+//        memberService = new MemberService(memberRepository);
+//    }
+//
+//    @AfterEach
+//    public void afterEach() {
+//        memberRepository.clearStore();
+//    }
 
     @Test
     void 회원가입() {
