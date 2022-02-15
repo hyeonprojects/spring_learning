@@ -1,5 +1,8 @@
 package hello.core.member;
 
+import hello.core.dicount.DiscountPolicy;
+import org.springframework.core.annotation.Order;
+
 public class MemberServiceImpl implements MemberService{
 
     private final MemberRepository memberRepository; // 당형성에 의해서 이 인스턴스에
@@ -17,4 +20,7 @@ public class MemberServiceImpl implements MemberService{
     public Member findMember(Long memberId) {
         return memberRepository.findById(memberId);
     }
+
+    // 테스트 용도
+
 }
