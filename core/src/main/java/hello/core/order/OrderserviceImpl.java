@@ -6,7 +6,9 @@ import hello.core.dicount.RateDicountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
+import org.springframework.stereotype.Component;
 
+@Component
 public class OrderserviceImpl implements OrderService {
 
     private final MemberRepository memberRepository;
@@ -25,6 +27,7 @@ public class OrderserviceImpl implements OrderService {
         return new Order(memberId, itemName, itemPrice, discountPrice);
     }
 
+    // Test 용도
     public MemberRepository getMemberRepository() {
         return memberRepository;
     }

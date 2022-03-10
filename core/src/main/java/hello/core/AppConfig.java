@@ -15,16 +15,19 @@ public class AppConfig {
 
     @Bean
     public MemberService memberService() {
+        System.out.println("call Appconfig.memberService");
         return new MemberServiceImpl(memberRepository()); // 생성자를 통해서 들어간다고 해서 생성자 주입이라고 한다.
     }
 
     @Bean
     public MemoryMemberRepository memberRepository() {
+        System.out.println("call AppConfig.memberRepository");
         return new MemoryMemberRepository();
     }
 
     @Bean
     public OrderService orderService() {
+        System.out.println("call AppConfig.orderService");
         return new OrderserviceImpl(memberRepository(), discountPolicy());
     }
 
